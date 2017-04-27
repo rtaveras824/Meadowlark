@@ -1,0 +1,25 @@
+{
+  "name": "meadowlark",
+  "version": "1.0.0",
+  "description": "A travel website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rtaveras824/Meadowlark.git"
+  },
+  "keywords": [
+    "Travel"
+  ],
+  "author": "Reuben",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rtaveras824/Meadowlark/issues"
+  },
+  "homepage": "https://github.com/rtaveras824/Meadowlark#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
