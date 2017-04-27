@@ -2,7 +2,7 @@
   "name": "meadowlark",
   "version": "1.0.0",
   "description": "A travel website",
-  "main": "index.js",
+  "main": "meadowlark.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
