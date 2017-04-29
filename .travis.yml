@@ -1,4 +1,13 @@
 language: node_js
 node_js:
-  - "iojs"
-  - "7"
+-'node'
+- 'iojs'
+- '7'
+- '6'
+- '5'
+- '4'
+deploy:
+  app: Meadowlark
+  provider: heroku
+  api_key:
+    secure: jP1RpfxNZPmSV7yIfcGXVmGDzr32OVXrNnf//OQ7jDYhhMo6GqWpHJqS9VLYFXoZC6qUn9ir1FNE0Ge/apKMI1pZwi0h2zZ99z1KT4yZpXr5jn3N9P5ghE9s9FmJ2Z0QhC9/K81cgvGqqF/pT/LONvqG7ilCnlJ5Y8l5wnp5At2HTL5IkWJkkwk8E1835tSnzEcufsaF/oUTVFlzicCiKujESCrOfpEZGmvS+9+aXzh9gkV7G8gsJkvFwOsFUm576sJEH+/h/VBXn4mu3jOQt1KtNtpW4zRT3DCVTQybLBtMJs7nQX3+KagF4yXCaWx5NRmVOi/QteSbw8vT/ucC1ZJETORVJcmKMHvEU7oNzGouomJBo/ZgGVGHZykLJrghOmgeEsNmhk9BRprgOeBUxD5D08yafWjJCq2noUtBO59mR+dMi+H1hcdWPiBnnMDgQzkE4LtSS53EntSlBHKhecGaSIU6EcWMoxwpgee3mfCI6fyorsRUSBQt9PQ3VKuySNATYNQYUWVEaV0oeYMrDaB7/2hRGiiVchers9yRL4tkX+nSetDwAAYWudfqhb6aV/jFCfUU1w5biwMM9oT0UXgnbxqiMjInAvh3CCVXEz0AfKhnuluEfo5u1roCKMYd2RmOqm8x++/czCVtEnjcG5DxfH2mSWXZT+V8bg/z6Bo=
