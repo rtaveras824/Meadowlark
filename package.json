@@ -4,7 +4,7 @@
   "description": "A travel website",
   "main": "meadowlark.js",
   "scripts": {
-    "start": "node meadowlark"
+    "start": "node meadowlark",
     "test": "./node_modules/mocha/bin/mocha"
   },
   "repository": {
