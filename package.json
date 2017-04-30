@@ -5,7 +5,7 @@
   "main": "meadowlark.js",
   "scripts": {
     "start": "node meadowlark",
-    "test": "./node_modules/mocha/bin/mocha"
+    "test": "grunt"
   },
   "repository": {
     "type": "git",
