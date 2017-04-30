@@ -1,19 +1,22 @@
 sudo: false
 language: node_js
 node_js:
-  - "0.10"
-  - "0.12"
-  - "4.0"
-  - "4.1"
-  - "4.2"
-  - "5"
-  - "6"
-  - "iojs"
+- '0.10'
+- '0.12'
+- '4.0'
+- '4.1'
+- '4.2'
+- '5'
+- '6'
+- iojs
 before_install:
-  - npm install -g npm
+- npm install -g npm
 matrix:
   fast_finish: true
 deploy:
   provider: heroku
   api_key:
-    secure: jP1RpfxNZPmSV7yIfcGXVmGDzr32OVXrNnf//OQ7jDYhhMo6GqWpHJqS9VLYFXoZC6qUn9ir1FNE0Ge/apKMI1pZwi0h2zZ99z1KT4yZpXr5jn3N9P5ghE9s9FmJ2Z0QhC9/K81cgvGqqF/pT/LONvqG7ilCnlJ5Y8l5wnp5At2HTL5IkWJkkwk8E1835tSnzEcufsaF/oUTVFlzicCiKujESCrOfpEZGmvS+9+aXzh9gkV7G8gsJkvFwOsFUm576sJEH+/h/VBXn4mu3jOQt1KtNtpW4zRT3DCVTQybLBtMJs7nQX3+KagF4yXCaWx5NRmVOi/QteSbw8vT/ucC1ZJETORVJcmKMHvEU7oNzGouomJBo/ZgGVGHZykLJrghOmgeEsNmhk9BRprgOeBUxD5D08yafWjJCq2noUtBO59mR+dMi+H1hcdWPiBnnMDgQzkE4LtSS53EntSlBHKhecGaSIU6EcWMoxwpgee3mfCI6fyorsRUSBQt9PQ3VKuySNATYNQYUWVEaV0oeYMrDaB7/2hRGiiVchers9yRL4tkX+nSetDwAAYWudfqhb6aV/jFCfUU1w5biwMM9oT0UXgnbxqiMjInAvh3CCVXEz0AfKhnuluEfo5u1roCKMYd2RmOqm8x++/czCVtEnjcG5DxfH2mSWXZT+V8bg/z6Bo=
+    secure: gqrraB2Y9uMm27Oox6AJ52ZXINqMe9k0IeRnCIG9vHxx8XXdsW70xsT3/NfPWbYUHeS9IlwbMVmaXe8sAk9qhuKGQD07nStt/Pi6nwfBMJyi/0cnxoiikkesKvmZW8EbYwqLliss29rKbdMYJsXOuT2kuIGFAUtX/1fW/btaPLQq3Em0zyDmnBpiwvvPipjNZGyjnPUII714HnIfRJcR++1MR/iX5PlZN/hJkqeEmyelEocPIDp0gfQj1ZVPj0397Xo7yYVbIpDdmUehgIS2U7XhQY03wD3J6mQs7sWgZVRyIMUj4742QGH2lcaYXiLGBGJ6Mrv9OqZD4ASRdxv1YYSyk6sgESUcNpQPD0N7Q/No3GpEVbHPrMFocD2pmRVlO8soipeUxEV0vp0v5030weQTflfinBjoZprds3tUWv5NcZ+jWJM0/Dr02KdplmPMeb6CPRIdMm6QJKgpO5vh59NdfXz6RQUbnuCZa4zYWO5cpcenUPaQhjEuLM6ehKfy/11WhSJKDjJeKG6Ovoxx+3tOBuABmUXgxChXlxAqEqXIrPpQgEJbCtzhx7wzxIqdkxV3eHIk5B/gSz/dDTfK+CAS6KW3Fa60lK3G6Ho3qVej4mIHiYdMVRcG7kKTNYa5BFBgduSaWbPDtLlDpTXOks7v6cR2nYt560iw2V3vVkA=
+  app: hidden-peak-11958
+  on:
+    repo: rtaveras824/Meadowlark
