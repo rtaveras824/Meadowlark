@@ -1,8 +1,20 @@
+sudo: false
 language: node_js
 node_js:
-- '0.10'
+  - "0.10"
+  - "0.12"
+  - "4.0"
+  - "4.1"
+  - "4.2"
+  - "5"
+  - "6"
+  - "iojs"
+before_install:
+  - npm install -g npm
 before_script:
-  - npm install -g grunt-cli
+  - npm uninstall grunt # https://github.com/npm/npm/issues/3958
+matrix:
+  fast_finish: true
 deploy:
   app: Meadowlark
   provider: heroku
