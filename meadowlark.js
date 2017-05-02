@@ -19,6 +19,26 @@ app.use(function(req, res, next) {
 	next();
 });
 
+function getWeatherData() {
+	return {
+		locations: [
+			{
+				name: 'Portland',
+				forecastUrl: 'http://www.wunderground.com/US/OR/Portland.html',
+				iconUrl: 'http://icons-ak.wxug.com/i/c/k/cloudy.gif',
+				weather: 'Overcast',
+				temp: '54.1 F (12.3 C)'
+			}
+		]
+	};
+};
+
+app.use(function(req, res, next) {
+	if (!res.locals.partials) res.locals.partials = {};
+	res.locals.partials.weatherContext = getWeatherData();
+	next();
+})
+
 app.get('/', function(req, res) {
 	res.render('home');
 });
@@ -36,6 +56,13 @@ app.get('/tours/hood-river', function(req, res) {
 
 app.get('/tours/request-group-rate', function(req, res) {
 	res.render('tours/request-group-rate');
+});
+
+app.get('/headers', function(req, res) {
+	res.set('Content-Type', 'text/plain');
+	var s = '';
+	for (var name in req.headers) s += name + ': ' + req.headers[name] + '\n';
+	res.send(s);
 });
 
 //custom 404 page
