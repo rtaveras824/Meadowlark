@@ -6,7 +6,16 @@ var express = require('express');
 var app = express();
 
 //set up handlebars view engine
-var handlebars = require('express-handlebars').create({ defaultLayout: 'main' });
+var handlebars = require('express-handlebars').create({ 
+	defaultLayout: 'main',
+	helpers: {
+		section: function(name, options) {
+			if(!this._sections) this._sections = {};
+			this._sections[name] = options.fn(this);
+			return null;
+		}
+	} 
+});
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
@@ -48,6 +57,23 @@ app.get('/about', function(req, res) {
 		fortune: fortune.getFortune(),
 		pageTestScript: '/qa/tests-about.js'
 	 });
+});
+
+app.get('/jquery-test', function(req, res) {
+	res.render('jquery-test');
+});
+
+app.get('/nursery-rhyme', function(req, res) {
+	res.render('nursery-rhyme');
+});
+
+app.get('/data/nursery-rhyme', function(req, res) {
+	res.json({
+		animal: 'squirrel',
+		bodyPart: 'tail',
+		adjective: 'bushy',
+		noun: 'heck'
+	});
 });
 
 app.get('/tours/hood-river', function(req, res) {
