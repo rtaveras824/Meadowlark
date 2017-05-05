@@ -2,6 +2,7 @@
 var fortune = require('./lib/fortune.js');
 
 var express = require('express');
+var bodyParser = require('body-parser');
 
 var app = express();
 
@@ -20,6 +21,8 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
 app.set('port', process.env.PORT || 3000);
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(__dirname + '/public'));
 
@@ -40,13 +43,13 @@ function getWeatherData() {
 			}
 		]
 	};
-};
+}
 
 app.use(function(req, res, next) {
 	if (!res.locals.partials) res.locals.partials = {};
 	res.locals.partials.weatherContext = getWeatherData();
 	next();
-})
+});
 
 app.get('/', function(req, res) {
 	res.render('home');
@@ -82,6 +85,33 @@ app.get('/tours/hood-river', function(req, res) {
 
 app.get('/tours/request-group-rate', function(req, res) {
 	res.render('tours/request-group-rate');
+});
+
+app.get('/newsletter', function(req, res) {
+	// we will learn about CSRF later... for now, we just
+	// provide a dummy value
+	res.render('newsletter', { csrf: 'CSRF token goes here' });
+});
+
+app.post('/process', function(req, res) {
+	// console.log('Form (from querystring): ' + req.query.form);
+	// console.log('CSRF token (from hidden form field): ' + req.body._csrf);
+	// console.log('Name (from visible form field): ' + req.body.name);
+	// console.log('Email (from visible form field): ' + req.body.email);
+	// // Don't use 301 redirects, that is a permanent redirect and will cache the destination
+	// res.redirect(303, '/thank-you');
+
+	if(req.xhr || req.accepts('json,html') === 'json') {
+		// if there were an error, we would send { error: 'error description' }
+		res.send({ success: true });
+	} else {
+		// if there were an error, we would redirect to an error page
+		res.redirect(303, '/thank-you');
+	}
+});
+
+app.get('/thank-you', function(req,res) {
+	res.render('thank-you');
 });
 
 app.get('/headers', function(req, res) {
