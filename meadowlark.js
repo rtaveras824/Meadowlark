@@ -1,10 +1,13 @@
 // picks random fortune
 var fortune = require('./lib/fortune.js');
+var credentials = require('./credentials.js');
 
 var express = require('express');
 var bodyParser = require('body-parser');
 var formidable = require('formidable');
 var jqupload = require('jquery-file-upload-middleware');
+var cookieParser = require('cookie-parser');
+var expressSession = require('express-session');
 
 var app = express();
 
@@ -26,7 +29,22 @@ app.set('port', process.env.PORT || 3000);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(cookieParser(credentials.cookieSecret));
+
+app.use(expressSession({
+	resave: false,
+	saveUninitialized: false,
+	secret: credentials.cookieSecret,
+}));
+
 app.use(express.static(__dirname + '/public'));
+
+app.use(function(req, res, next) {
+	//if there's a flash message, transfer it to the context, then clear it
+	res.locals.flash = req.session.flash;
+	delete req.session.flash;
+	next();
+});
 
 app.use('/upload', function(req, res, next) {
 	var now = Date.now();
