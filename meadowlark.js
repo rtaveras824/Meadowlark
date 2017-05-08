@@ -26,7 +26,7 @@ mailTransport.sendMail({
 	subject: 'Your Meadowlark Travel Tour',
 	text: 'Thank you for booking your trip with Meadowlark Travel.'
 }, function(err) {
-	if(err) console.error('Unable to send email: ' + err);
+	if(err) console.error('Unaable to send email: ' + err);
 });
 
 //set up handlebars view engine
