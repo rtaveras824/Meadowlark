@@ -8,8 +8,26 @@ var formidable = require('formidable');
 var jqupload = require('jquery-file-upload-middleware');
 var cookieParser = require('cookie-parser');
 var expressSession = require('express-session');
+var nodemailer = require('nodemailer');
 
 var app = express();
+
+var mailTransport = nodemailer.createTransport({
+	service: 'Gmail',
+	auth: {
+		user: credentials.gmail.user,
+		pass: credentials.gmail.password
+	}
+});
+
+mailTransport.sendMail({
+	from: '"Reuben" <sturmknightoftherose@gmail.com>',
+	to: 'rtaveras824@hotmail.com',
+	subject: 'Your Meadowlark Travel Tour',
+	text: 'Thank you for booking your trip with Meadowlark Travel.'
+}, function(err) {
+	if(err) console.error('Unable to send email: ' + error);
+});
 
 //set up handlebars view engine
 var handlebars = require('express-handlebars').create({ 
